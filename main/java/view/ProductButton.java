@@ -68,13 +68,14 @@ public class ProductButton extends VBox{
         Button button = new Button("" + cnt);
         button.setOnAction(event -> {
             Thread thread = new Thread(() -> {
-                try { Thread.sleep(100);
+                try {
+                    Thread.sleep(100);
                     Platform.runLater(() -> {
                         try {
-                            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/screen/ShowProduct.fxml")); // Use ShowProduct.fxml
+                            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/screen/ShowProduct.fxml"));
                             Parent root = loader.load();
                             ProductController control = loader.getController();
-                            control.setProduct(product); // Use setProduct
+                            control.setProduct(product); 
                             Scene scene = new Scene(root); Stage stage = new Stage();
                             stage.setScene(scene); stage.setTitle(product.getName());
                             stage.show();
